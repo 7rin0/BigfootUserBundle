@@ -2,12 +2,11 @@
 
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
+use Bigfoot\Bundle\UserBundle\Form\DataTransformer\StringToUserTransformer;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Doctrine\ORM\EntityManager;
-
-use Bigfoot\Bundle\UserBundle\Form\DataTransformer\StringToUserTransformer;
 
 class ForgotPasswordType extends AbstractType
 {

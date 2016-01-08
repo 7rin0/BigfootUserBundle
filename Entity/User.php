@@ -2,10 +2,9 @@
 
 namespace Bigfoot\Bundle\UserBundle\Entity;
 
+use Bigfoot\Bundle\UserBundle\Model\User as BaseUser;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
-use Bigfoot\Bundle\UserBundle\Model\User as BaseUser;
 
 /**
  * User

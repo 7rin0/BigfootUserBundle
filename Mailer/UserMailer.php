@@ -2,14 +2,11 @@
 
 namespace Bigfoot\Bundle\UserBundle\Mailer;
 
-use Doctrine\ORM\EntityManager;
-
+use Bigfoot\Bundle\CoreBundle\Mailer\AbstractMailer;
+use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Bigfoot\Bundle\UserBundle\Model\User;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
-
-use Bigfoot\Bundle\CoreBundle\Mailer\AbstractMailer;
-use Bigfoot\Bundle\UserBundle\Model\User;
-use Bigfoot\Bundle\UserBundle\Event\UserEvent;
 
 class UserMailer extends AbstractMailer
 {

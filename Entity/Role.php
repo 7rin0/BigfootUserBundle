@@ -3,11 +3,11 @@
 namespace Bigfoot\Bundle\UserBundle\Entity;
 
 use Bigfoot\Bundle\UserBundle\Entity\Translation\RoleTranslation;
-use Symfony\Component\Security\Core\Role\RoleInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Serializable;
+use Symfony\Component\Security\Core\Role\RoleInterface;
 
 /**
  * Role

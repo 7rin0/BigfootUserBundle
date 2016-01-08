@@ -2,19 +2,18 @@
 
 namespace Bigfoot\Bundle\UserBundle\Manager;
 
+use Bigfoot\Bundle\ContextBundle\Service\ContextService as Context;
+use Bigfoot\Bundle\CoreBundle\Generator\TokenGenerator;
+use Bigfoot\Bundle\UserBundle\Entity\User;
+use Bigfoot\Bundle\UserBundle\Mailer\UserMailer;
+use Bigfoot\Bundle\UserBundle\Model\User as ModelUser;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
-use Doctrine\ORM\EntityManager;
-
-use Bigfoot\Bundle\UserBundle\Model\User as ModelUser;
-use Bigfoot\Bundle\UserBundle\Entity\User;
-use Bigfoot\Bundle\UserBundle\Mailer\UserMailer;
-use Bigfoot\Bundle\CoreBundle\Generator\TokenGenerator;
-use Bigfoot\Bundle\ContextBundle\Service\ContextService as Context;
 
 /**
  * UserManager

@@ -2,12 +2,11 @@
 
 namespace Bigfoot\Bundle\UserBundle\DataFixtures\ORM;
 
+use Bigfoot\Bundle\UserBundle\Entity\Role;
 use Bigfoot\Bundle\UserBundle\Entity\Translation\RoleTranslation;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-
-use Bigfoot\Bundle\UserBundle\Entity\Role;
 
 class LoadRoleData extends AbstractFixture implements OrderedFixtureInterface
 {

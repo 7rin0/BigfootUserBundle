@@ -2,16 +2,13 @@
 
 namespace Bigfoot\Bundle\UserBundle\Subscriber;
 
-use Symfony\Component\EventDispatcher\GenericEvent;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Http\SecurityEvents;
-use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Core\Exception\AccountStatusException;
-use Doctrine\ORM\EntityManager;
-
 use Bigfoot\Bundle\UserBundle\Entity\User;
-use Bigfoot\Bundle\UserBundle\Manager\UserManager;
 use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Bigfoot\Bundle\UserBundle\Manager\UserManager;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use Symfony\Component\Security\Http\SecurityEvents;
 
 /**
  * User Subscriber

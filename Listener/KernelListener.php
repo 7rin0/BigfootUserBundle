@@ -5,10 +5,8 @@ namespace Bigfoot\Bundle\UserBundle\Listener;
 use Bigfoot\Bundle\UserBundle\Model\User;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
-use Gedmo\Translatable\TranslatableListener;
 
 /**
  * Class KernelListener

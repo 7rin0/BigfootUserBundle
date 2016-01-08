@@ -2,13 +2,11 @@
 
 namespace Bigfoot\Bundle\UserBundle\Manager;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\ORM\EntityManager;
-
 use Bigfoot\Bundle\CoreBundle\Menu\Builder;
 use Bigfoot\Bundle\UserBundle\Entity\RoleMenu;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class RoleMenuManager

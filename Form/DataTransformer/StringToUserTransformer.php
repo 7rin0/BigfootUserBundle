@@ -2,9 +2,9 @@
 
 namespace Bigfoot\Bundle\UserBundle\Form\DataTransformer;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
-use Doctrine\ORM\EntityManager;
 
 class StringToUserTransformer implements DataTransformerInterface
 {

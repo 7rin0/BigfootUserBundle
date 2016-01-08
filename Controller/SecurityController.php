@@ -2,18 +2,14 @@
 
 namespace Bigfoot\Bundle\UserBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\EventDispatcher\GenericEvent;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-
 use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
+use Bigfoot\Bundle\UserBundle\Event\UserEvent;
 use Bigfoot\Bundle\UserBundle\Form\Model\ForgotPasswordModel;
 use Bigfoot\Bundle\UserBundle\Form\Model\ResetPasswordModel;
-use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * BigfootUser controller.

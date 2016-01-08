@@ -3,14 +3,13 @@
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
 use Bigfoot\Bundle\ContextBundle\Service\ContextService;
+use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\EventDispatcher\GenericEvent;
-
-use Bigfoot\Bundle\UserBundle\Event\UserEvent;
 
 /**
  * User Type

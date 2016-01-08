@@ -2,23 +2,14 @@
 
 namespace Bigfoot\Bundle\UserBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Yaml\Yaml;
-
+use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
+use Bigfoot\Bundle\UserBundle\Form\RoleMenuType;
+use Bigfoot\Bundle\UserBundle\Form\Type\RoleMenusType;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-
-use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
-use Bigfoot\Bundle\CoreBundle\Theme\Menu\Item;
-use Bigfoot\Bundle\UserBundle\Form\RoleMenuType;
-use Bigfoot\Bundle\UserBundle\Entity\RoleMenu;
-
-use Bigfoot\Bundle\UserBundle\Form\Type\RoleMenusType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * RoleMenu controller.
