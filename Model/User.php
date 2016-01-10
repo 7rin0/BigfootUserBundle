@@ -466,7 +466,7 @@ abstract class User implements AdvancedUserInterface, Serializable
      *
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return $this->getUsername();
     }

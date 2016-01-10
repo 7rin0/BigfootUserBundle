@@ -31,7 +31,7 @@ class ResetPasswordType extends AbstractType
         );
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'admin_reset_password';
     }

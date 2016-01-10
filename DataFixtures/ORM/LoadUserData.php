@@ -32,7 +32,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ->setUsername('admin')
             ->setPlainPassword('admin')
             ->setFullname('Administrator')
-            ->setEmail('admin@c2is.fr')
+            ->setEmail('admin@sf3.com')
             ->setLocale('en')
             ->addRole($roleAdmin);
         $userManager->updatePassword($admin);
@@ -42,7 +42,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             ->setUsername('testAdmin')
             ->setPlainPassword('testAdmin')
             ->setFullname('testAdministrator')
-            ->setEmail('testAdmin@c2is.fr')
+            ->setEmail('testAdmin@sf3.com')
             ->setLocale('en');
         $userManager->updatePassword($admin2);
 

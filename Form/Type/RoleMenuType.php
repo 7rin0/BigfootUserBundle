@@ -58,7 +58,7 @@ class RoleMenuType extends AbstractType
         );
     }
 
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'role_menu_type';
     }

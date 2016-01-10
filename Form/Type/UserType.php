@@ -118,7 +118,7 @@ class UserType extends AbstractType
     /**
      * SetDefaultOptions
      *
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {
@@ -134,7 +134,7 @@ class UserType extends AbstractType
      *
      * @return string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'admin_user';
     }

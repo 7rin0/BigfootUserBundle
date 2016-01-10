@@ -58,7 +58,7 @@ class SecurityController extends BaseController
      */
     public function forgotPasswordAction(Request $request)
     {
-        $form = $this->createForm('admin_forgot_password', new ForgotPasswordModel());
+        $form = $this->createForm($this->get('bigfoot_user.form.type.forgot_password'), new ForgotPasswordModel());
 
         if ('POST' === $request->getMethod()) {
             $form->handleRequest($request);

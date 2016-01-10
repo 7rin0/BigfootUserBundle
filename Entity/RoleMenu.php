@@ -148,7 +148,7 @@ class RoleMenu
         $roles = array();
 
         foreach ($this->roles as $role) {
-            $roles[] = $role->getName();
+            $roles[] = $role->getBlockPrefix();
         }
 
         return $roles;
