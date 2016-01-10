@@ -58,7 +58,10 @@ class SecurityController extends BaseController
      */
     public function forgotPasswordAction(Request $request)
     {
-        $form = $this->createForm($this->get('bigfoot_user.form.type.forgot_password'), new ForgotPasswordModel());
+        $form = $this->createForm(
+            $this->get('bigfoot_user.form.type.forgot_password'),
+            new ForgotPasswordModel()
+        );
 
         if ('POST' === $request->getMethod()) {
             $form->handleRequest($request);
@@ -106,7 +109,10 @@ class SecurityController extends BaseController
             return $this->redirect($this->generateUrl('admin_login'));
         }
 
-        $form = $this->createForm('admin_reset_password', new ResetPasswordModel());
+        $form = $this->createForm(
+            $this->get('bigfoot_user.form.type.reset_password'),
+            new ResetPasswordModel()
+        );
 
         if ('POST' === $request->getMethod()) {
             $form->handleRequest($request);
