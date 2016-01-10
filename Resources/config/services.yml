@@ -3,7 +3,7 @@ services:
         class: Bigfoot\Bundle\UserBundle\Form\BigfootRoleMenuType
         arguments: [ '@service_container' ]
         tags:
-            - { name: form.type, alias: bigfootrolemenutype }
+            - { name: form.type }
 
     # Kernel Listener
     bigfoot_user.listener.kernel:
@@ -66,7 +66,7 @@ services:
             - '@bigfoot_context'
             - '@event_dispatcher'
         tags:
-            - { name: form.type, alias: admin_user }
+            - { name: form.type }
 
     # ForgotPassword Type
     bigfoot_user.form.type.forgot_password:
@@ -74,19 +74,19 @@ services:
         arguments:
             - '@doctrine.orm.entity_manager'
         tags:
-            - { name: form.type, alias: admin_forgot_password }
+            - { name: form.type }
 
     # ResetPassword Type
     bigfoot_user.form.type.reset_password:
         class: Bigfoot\Bundle\UserBundle\Form\Type\ResetPasswordType
         tags:
-            - { name: form.type, alias: admin_reset_password }
+            - { name: form.type }
 
     # Role Type
     bigfoot_user.form.type.role:
         class: Bigfoot\Bundle\UserBundle\Form\Type\RoleType
         tags:
-            - { name: form.type, alias: admin_role }
+            - { name: form.type }
 
     #MenuRole
     bigfoot_user.manager.role_menu:
