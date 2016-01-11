@@ -18,7 +18,7 @@ class RoleController extends CrudController
     /**
      * @return string
      */
-    protected function getBlockPrefix()
+    protected function getName()
     {
         return 'admin_role';
     }

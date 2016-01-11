@@ -29,7 +29,7 @@ class RoleMenusType extends AbstractType
         );
     }
 
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'role_menus_type';
     }

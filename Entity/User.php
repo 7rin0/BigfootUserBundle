@@ -106,7 +106,7 @@ class User extends BaseUser
     public function getRoles()
     {
         foreach ($this->roles as $role) {
-            $roles[] = $role->getBlockPrefix();
+            $roles[] = $role->getName();
         }
 
         $roles[] = static::ROLE_DEFAULT;

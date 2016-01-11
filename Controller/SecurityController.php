@@ -59,7 +59,7 @@ class SecurityController extends BaseController
     public function forgotPasswordAction(Request $request)
     {
         $form = $this->createForm(
-            $this->get('bigfoot_user.form.type.forgot_password'),
+            $this->get('bigfoot_user.form.type.forgot_password')->getBlockPrefix(),
             new ForgotPasswordModel()
         );
 
@@ -78,7 +78,7 @@ class SecurityController extends BaseController
                 if ($request->isXmlHttpRequest()) {
                     return $this->renderAjax($token['status'], $this->getTranslator()->trans($token['message']));
                 } else {
-                    return $this->redirect($this->generateUrl('forgot_password'));
+                    return $this->redirect($this->generateUrl('admin_forgot_password'));
                 }
             } else {
                 if ($request->isXmlHttpRequest()) {

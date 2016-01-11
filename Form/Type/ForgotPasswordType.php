@@ -44,7 +44,7 @@ class ForgotPasswordType extends AbstractType
         );
     }
 
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'admin_forgot_password';
     }

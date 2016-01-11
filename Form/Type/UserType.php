@@ -134,7 +134,7 @@ class UserType extends AbstractType
      *
      * @return string
      */
-    public function getBlockPrefix()
+    public function getName()
     {
         return 'admin_user';
     }

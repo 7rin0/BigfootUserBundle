@@ -20,7 +20,7 @@ class UserController extends CrudController
     /**
      * @return string
      */
-    protected function getBlockPrefix()
+    protected function getName()
     {
         return 'admin_user';
     }

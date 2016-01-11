@@ -72,10 +72,10 @@ class RoleMenuManager
         $childrens = array();
 
         foreach ($items as $item) {
-            $roleMenu = $this->repository->findOneBySlug($item->getBlockPrefix());
+            $roleMenu = $this->repository->findOneBySlug($item->getName());
             $child    = $roleMenu instanceof RoleMenu ? $roleMenu : new RoleMenu();
             $child
-                ->setSlug($item->getBlockPrefix())
+                ->setSlug($item->getName())
                 ->setLabel($item->getLabel())
                 ->setLevel($level);
 
