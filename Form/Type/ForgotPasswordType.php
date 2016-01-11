@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class ForgotPasswordType extends AbstractType
 {
@@ -22,7 +23,7 @@ class ForgotPasswordType extends AbstractType
         $builder
             ->add(
                 'email',
-                'email',
+                EmailType::class,
                 array(
                     'invalid_message' => 'Invalid email',
                     'required'        => true,
