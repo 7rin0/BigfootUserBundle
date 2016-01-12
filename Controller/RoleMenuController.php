@@ -36,7 +36,7 @@ class RoleMenuController extends BaseController
         $form  = $this->createForm(new RoleMenusType(), array('roleMenus' => new ArrayCollection($items)));
 
         if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
+            $form->handleRequest($requestStack);
 
             $datas     = $form->getData();
             $roleMenus = $datas['roleMenus'];

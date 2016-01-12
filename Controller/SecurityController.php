@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * BigfootUser controller.
@@ -63,8 +64,8 @@ class SecurityController extends BaseController
             new ForgotPasswordModel()
         );
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $user = $form->get('email')->getData();
@@ -104,6 +105,7 @@ class SecurityController extends BaseController
     {
         $user     = $this->getRepository('BigfootUserBundle:User')->findOneByConfirmationToken($confirmationToken);
         $tokenTtl = $this->container->getParameter('bigfoot_user.resetting.token_ttl');
+        $requestStack = $requestStack->getCurrentRequest();
 
         if (!$user || !$user->isPasswordRequestNonExpired($tokenTtl)) {
             return $this->redirect($this->generateUrl('admin_login'));
@@ -114,8 +116,8 @@ class SecurityController extends BaseController
             new ResetPasswordModel()
         );
 
-        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
-            $form->handleRequest($request);
+        if ('POST' === $requestStack->getMethod()) {
+            $form->handleRequest($requestStack);
 
             if ($form->isValid()) {
                 $data = $form->getData();
