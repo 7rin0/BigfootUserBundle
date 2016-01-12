@@ -22,7 +22,7 @@ class SecurityController extends BaseController
     /**
      * @Route("/login", name="admin_login")
      */
-    public function loginAction(Request $request)
+    public function loginAction(RequestStack $requestStack)
     {
         $helper = $this->get('security.authentication_utils');
 
@@ -56,14 +56,14 @@ class SecurityController extends BaseController
      *
      * @Route("/forgot-password", name="admin_forgot_password")
      */
-    public function forgotPasswordAction(Request $request)
+    public function forgotPasswordAction(RequestStack $requestStack)
     {
         $form = $this->createForm(
             get_class($this->get('bigfoot_user.form.type.forgot_password')),
             new ForgotPasswordModel()
         );
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
@@ -100,7 +100,7 @@ class SecurityController extends BaseController
      *
      * @Route("/reset-password/{confirmationToken}", name="admin_reset_password")
      */
-    public function resetPasswordAction(Request $request, $confirmationToken)
+    public function resetPasswordAction(RequestStack $requestStack, $confirmationToken)
     {
         $user     = $this->getRepository('BigfootUserBundle:User')->findOneByConfirmationToken($confirmationToken);
         $tokenTtl = $this->container->getParameter('bigfoot_user.resetting.token_ttl');
@@ -114,7 +114,7 @@ class SecurityController extends BaseController
             new ResetPasswordModel()
         );
 
-        if ('POST' === $request->getMethod()) {
+        if ('POST' === $requestStack->getCurrentRequest()->getMethod()) {
             $form->handleRequest($request);
 
             if ($form->isValid()) {

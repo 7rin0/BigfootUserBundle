@@ -14,7 +14,7 @@ class RoleMenuManager
     /**
      * @var Request
      */
-    private $request;
+    private $requestStack;
 
     /**
      * @var Builder

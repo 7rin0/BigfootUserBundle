@@ -9,6 +9,7 @@ use Bigfoot\Bundle\UserBundle\Mailer\UserMailer;
 use Bigfoot\Bundle\UserBundle\Model\User as ModelUser;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
@@ -23,14 +24,12 @@ class UserManager
     protected $entityManager;
     protected $encoderFactory;
     protected $userChecker;
-
-    /** @var TokenStorage */
     protected $securityTokenStorage;
     protected $session;
     protected $context;
     protected $userMailer;
     protected $tokenGenerator;
-    protected $request;
+    protected $requestStack;
 
     public function __construct(
         EntityManager $entityManager,
@@ -52,9 +51,9 @@ class UserManager
         $this->tokenGenerator       = $tokenGenerator;
     }
 
-    public function setRequest(Request $request = null)
+    public function setRequestStack(RequestStack $requestStack = null)
     {
-        $this->request = $request;
+        $this->requestStack = $requestStack->getCurrentRequest();
     }
 
     public function createUser()
@@ -101,7 +100,7 @@ class UserManager
     public function applyLocale($user)
     {
         if ($user && $user instanceof ModelUser && $user->getLocale()) {
-            $this->request->getSession()->set('_locale', $user->getLocale());
+            $this->requestStack->getCurrentRequest()->getSession()->set('_locale', $user->getLocale());
         }
     }
 

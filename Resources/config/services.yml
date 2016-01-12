@@ -41,7 +41,7 @@ services:
             - '@bigfoot_user.mailer.user'
             - '@bigfoot_core.generator.token'
         calls:
-            - [setRequest, ['@?request=']]
+            - [setRequestStack, ['@?request_stack=']]
 
     # User Mailer
     bigfoot_user.mailer.user:

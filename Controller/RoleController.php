@@ -71,10 +71,10 @@ class RoleController extends CrudController
      * List Role entities.
      *
      * @Route("/", name="admin_role")
-     * @param Request $request
+     * @param RequestStack $requestStack
      * @return array
      */
-    public function indexAction(Request $request)
+    public function indexAction(RequestStack $requestStack)
     {
         return $this->doIndex($request);
     }
@@ -83,7 +83,7 @@ class RoleController extends CrudController
      *
      * @Route("/new", name="admin_role_new")
      */
-    public function newAction(Request $request)
+    public function newAction(RequestStack $requestStack)
     {
         return $this->doNew($request);
     }
@@ -93,7 +93,7 @@ class RoleController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_role_edit")
      */
-    public function editAction(Request $request, $id)
+    public function editAction(RequestStack $requestStack, $id)
     {
         return $this->doEdit($request, $id);
     }
@@ -103,7 +103,7 @@ class RoleController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_role_delete")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(RequestStack $requestStack, $id)
     {
         return $this->doDelete($request, $id);
     }

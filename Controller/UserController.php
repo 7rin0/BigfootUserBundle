@@ -73,10 +73,10 @@ class UserController extends CrudController
      * Lists User entities.
      *
      * @Route("/", name="admin_user")
-     * @param Request $request
+     * @param RequestStack $requestStack
      * @return array
      */
-    public function indexAction(Request $request)
+    public function indexAction(RequestStack $requestStack)
     {
         return $this->doIndex($request);
     }
@@ -86,7 +86,7 @@ class UserController extends CrudController
      *
      * @Route("/new", name="admin_user_new")
      */
-    public function newAction(Request $request)
+    public function newAction(RequestStack $requestStack)
     {
         return $this->doNew($request);
     }
@@ -96,7 +96,7 @@ class UserController extends CrudController
      *
      * @Route("/edit/{id}", name="admin_user_edit")
      */
-    public function editAction(Request $request, $id)
+    public function editAction(RequestStack $requestStack, $id)
     {
         return $this->doEdit($request, $id);
     }
@@ -106,7 +106,7 @@ class UserController extends CrudController
      *
      * @Route("/delete/{id}", name="admin_user_delete")
      */
-    public function deleteAction(Request $request, $id)
+    public function deleteAction(RequestStack $requestStack, $id)
     {
         return $this->doDelete($request, $id);
     }
