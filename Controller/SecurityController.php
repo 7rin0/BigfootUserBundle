@@ -9,7 +9,6 @@ use Bigfoot\Bundle\UserBundle\Form\Model\ResetPasswordModel;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
@@ -59,6 +58,7 @@ class SecurityController extends BaseController
      */
     public function forgotPasswordAction(RequestStack $requestStack)
     {
+        $requestStack = $requestStack->getCurrentRequest();
         $form = $this->createForm(
             get_class($this->get('bigfoot_user.form.type.forgot_password')),
             new ForgotPasswordModel()
@@ -76,13 +76,13 @@ class SecurityController extends BaseController
 
                 $token = $this->getUserManager()->generateToken($user);
 
-                if ($request->isXmlHttpRequest()) {
+                if ($requestStack->isXmlHttpRequest()) {
                     return $this->renderAjax($token['status'], $this->getTranslator()->trans($token['message']));
                 } else {
                     return $this->redirect($this->generateUrl('admin_forgot_password'));
                 }
             } else {
-                if ($request->isXmlHttpRequest()) {
+                if ($requestStack->isXmlHttpRequest()) {
                     return $this->renderAjax(false, $this->getTranslator()->trans('Invalid email'));
                 }
             }

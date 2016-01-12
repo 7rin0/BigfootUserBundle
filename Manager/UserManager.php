@@ -8,7 +8,6 @@ use Bigfoot\Bundle\UserBundle\Entity\User;
 use Bigfoot\Bundle\UserBundle\Mailer\UserMailer;
 use Bigfoot\Bundle\UserBundle\Model\User as ModelUser;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;

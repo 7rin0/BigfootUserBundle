@@ -5,9 +5,9 @@ namespace Bigfoot\Bundle\UserBundle\Form\Type;
 use Bigfoot\Bundle\UserBundle\Form\DataTransformer\StringToUserTransformer;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 class ForgotPasswordType extends AbstractType
 {

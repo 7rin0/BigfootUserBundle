@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 /**
  * RoleMenu controller.
@@ -33,9 +33,10 @@ class RoleMenuController extends BaseController
     public function indexAction(RequestStack $requestStack)
     {
         $items = $this->getMenuRoleManager()->getItems();
+        $requestStack = $requestStack->getCurrentRequest();
         $form  = $this->createForm(new RoleMenusType(), array('roleMenus' => new ArrayCollection($items)));
 
-        if ($request->isMethod('POST')) {
+        if ($requestStack->isMethod('POST')) {
             $form->handleRequest($requestStack);
 
             $datas     = $form->getData();
