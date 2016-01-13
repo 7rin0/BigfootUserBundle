@@ -6,7 +6,6 @@ use Bigfoot\Bundle\CoreBundle\Menu\Builder;
 use Bigfoot\Bundle\UserBundle\Entity\RoleMenu;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class RoleMenuManager
@@ -40,7 +39,7 @@ class RoleMenuManager
      */
     public function __construct(RequestStack $requestStack, Builder $builder, EntityManager $entityManager)
     {
-        $this->request       = $requestStack->getCurrentRequest();
+        $this->requeststack       = $requestStack->getCurrentRequest();
         $this->builder       = $builder;
         $this->entityManager = $entityManager;
         $this->repository    = $this->entityManager->getRepository('BigfootUserBundle:RoleMenu');
@@ -53,7 +52,7 @@ class RoleMenuManager
      */
     public function getItems()
     {
-        $menu  = $this->builder->createMainMenu($this->request);
+        $menu  = $this->builder->createMainMenu($this->requestStack);
         $items = $this->getChilds($menu->getChildren());
 
         return $items;

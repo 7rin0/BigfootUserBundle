@@ -45,7 +45,7 @@ class UserController extends CrudController
         );
     }
 
-    protected function getFilters()
+    public function getFilters()
     {
         return array(
             array(
