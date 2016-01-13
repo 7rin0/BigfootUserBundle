@@ -22,7 +22,7 @@ class SecurityController extends BaseController
     /**
      * @Route("/login", name="admin_login")
      */
-    public function loginAction(RequestStack $requestStack)
+    public function loginAction(RequestStack $requestStack = null)
     {
         $helper = $this->get('security.authentication_utils');
 
@@ -56,7 +56,7 @@ class SecurityController extends BaseController
      *
      * @Route("/forgot-password", name="admin_forgot_password")
      */
-    public function forgotPasswordAction(RequestStack $requestStack)
+    public function forgotPasswordAction(RequestStack $requestStack = null)
     {
         $requestStack = $requestStack->getCurrentRequest();
         $form = $this->createForm(

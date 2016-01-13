@@ -99,7 +99,7 @@ class UserManager
     public function applyLocale($user)
     {
         if ($user && $user instanceof ModelUser && $user->getLocale()) {
-            $this->requestStack->getCurrentRequest()->getSession()->set('_locale', $user->getLocale());
+            $this->requestStack->getSession()->set('_locale', $user->getLocale());
         }
     }
 
