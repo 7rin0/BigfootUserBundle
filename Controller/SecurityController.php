@@ -58,32 +58,37 @@ class SecurityController extends BaseController
      */
     public function forgotPasswordAction(RequestStack $requestStack = null)
     {
-        $requestStack = $requestStack->getCurrentRequest();
-        $form = $this->createForm(
+        // Create Form
+        $form         = $this->createForm(
             get_class($this->get('bigfoot_user.form.type.forgot_password')),
             new ForgotPasswordModel()
         );
 
-        if ('POST' === $requestStack->getMethod()) {
-            $form->handleRequest($requestStack);
+        // If Request to Current user is set
+        if($requestStack) {
+            $requestStack = $requestStack->getCurrentRequest();
 
-            if ($form->isValid()) {
-                $user = $form->get('email')->getData();
+            if ('POST' === $requestStack->getMethod()) {
+                $form->handleRequest($requestStack);
 
-                if ($user->isPasswordRequestNonExpired($this->container->getParameter('bigfoot_user.resetting.token_ttl'))) {
-                    return $this->renderAjax(false, $this->getTranslator()->trans('Request already sent, check your emails'));
-                }
+                if ($form->isValid()) {
+                    $user = $form->get('email')->getData();
 
-                $token = $this->getUserManager()->generateToken($user);
+                    if ($user->isPasswordRequestNonExpired($this->container->getParameter('bigfoot_user.resetting.token_ttl'))) {
+                        return $this->renderAjax(false, $this->getTranslator()->trans('Request already sent, check your emails'));
+                    }
 
-                if ($requestStack->isXmlHttpRequest()) {
-                    return $this->renderAjax($token['status'], $this->getTranslator()->trans($token['message']));
+                    $token = $this->getUserManager()->generateToken($user);
+
+                    if ($requestStack->isXmlHttpRequest()) {
+                        return $this->renderAjax($token['status'], $this->getTranslator()->trans($token['message']));
+                    } else {
+                        return $this->redirect($this->generateUrl('admin_forgot_password'));
+                    }
                 } else {
-                    return $this->redirect($this->generateUrl('admin_forgot_password'));
-                }
-            } else {
-                if ($requestStack->isXmlHttpRequest()) {
-                    return $this->renderAjax(false, $this->getTranslator()->trans('Invalid email'));
+                    if ($requestStack->isXmlHttpRequest()) {
+                        return $this->renderAjax(false, $this->getTranslator()->trans('Invalid email'));
+                    }
                 }
             }
         }
