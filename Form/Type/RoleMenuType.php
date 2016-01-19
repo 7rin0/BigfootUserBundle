@@ -2,7 +2,7 @@
 
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -58,10 +58,5 @@ class RoleMenuType extends AbstractType
                 'data_class' => 'Bigfoot\Bundle\UserBundle\Entity\RoleMenu'
             )
         );
-    }
-
-    public function getName()
-    {
-        return 'role_menu_type';
     }
 }
