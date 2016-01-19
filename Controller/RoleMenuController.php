@@ -20,7 +20,7 @@ class RoleMenuController extends BaseController
 {
     private function getMenuRoleManager()
     {
-        return $this->container->get('bigfoot_user.manager.role_menu');
+        return $this->get('bigfoot_user.manager.role_menu');
     }
 
     /**

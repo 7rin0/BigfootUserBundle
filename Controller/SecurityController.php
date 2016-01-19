@@ -66,7 +66,7 @@ class SecurityController extends BaseController
 
         // If Request to Current user is set
         if($requestStack) {
-            $requestStack = $requestStack->getCurrentRequest();
+            $requestStack = $this->getRequestStack();
 
             if ('POST' === $requestStack->getMethod()) {
                 $form->handleRequest($requestStack);
@@ -74,7 +74,7 @@ class SecurityController extends BaseController
                 if ($form->isValid()) {
                     $user = $form->get('email')->getData();
 
-                    if ($user->isPasswordRequestNonExpired($this->container->getParameter('bigfoot_user.resetting.token_ttl'))) {
+                    if ($user->isPasswordRequestNonExpired($this->getParameter('bigfoot_user.resetting.token_ttl'))) {
                         return $this->renderAjax(false, $this->getTranslator()->trans('Request already sent, check your emails'));
                     }
 
@@ -109,8 +109,8 @@ class SecurityController extends BaseController
     public function resetPasswordAction($confirmationToken)
     {
         $user     = $this->getRepository('BigfootUserBundle:User')->findOneByConfirmationToken($confirmationToken);
-        $tokenTtl = $this->container->getParameter('bigfoot_user.resetting.token_ttl');
-        $requestStack = $requestStack->getCurrentRequest();
+        $tokenTtl = $this->getParameter('bigfoot_user.resetting.token_ttl');
+        $requestStack = $this->getRequestStack();
 
         if (!$user || !$user->isPasswordRequestNonExpired($tokenTtl)) {
             return $this->redirect($this->generateUrl('admin_login'));
