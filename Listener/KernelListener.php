@@ -3,6 +3,8 @@
 namespace Bigfoot\Bundle\UserBundle\Listener;
 
 use Bigfoot\Bundle\UserBundle\Model\User;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\Kernel;
@@ -33,17 +35,16 @@ class KernelListener
     /**
      * @param GetResponseEvent $event
      */
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(GetResponseEvent $event, RequestStack $requestStack)
     {
         if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType() or !in_array($this->kernel->getEnvironment(), array('admin', 'admin_dev'))) {
             return;
         }
 
-        $request = $event->getRequest();
         $token   = $this->securityTokenStorage->getToken();
 
-        if ($token and $user = $token->getUser() and $user instanceof User) {
-            $request->setLocale($user->getLocale());
+        if ($token and $user = $token->getUser() and $user instanceof User && $requestStack) {
+            $requestStack->getCurrentRequest()->setLocale($user->getLocale());
         }
     }
 }
