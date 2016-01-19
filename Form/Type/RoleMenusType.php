@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class RoleMenusType extends AbstractType
         $builder
             ->add(
                 'roleMenus',
-                'collection',
+                CollectionType::class,
                 array(
                     'type' => new RoleMenuType()
                 )
