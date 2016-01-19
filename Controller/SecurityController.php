@@ -106,7 +106,7 @@ class SecurityController extends BaseController
      *
      * @Route("/reset-password/{confirmationToken}", name="admin_reset_password")
      */
-    public function resetPasswordAction(RequestStack $requestStack, $confirmationToken)
+    public function resetPasswordAction($confirmationToken)
     {
         $user     = $this->getRepository('BigfootUserBundle:User')->findOneByConfirmationToken($confirmationToken);
         $tokenTtl = $this->container->getParameter('bigfoot_user.resetting.token_ttl');
