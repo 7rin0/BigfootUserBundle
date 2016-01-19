@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,7 +14,7 @@ class RoleMenuType extends AbstractType
         $builder
             ->add(
                 'slug',
-                'hidden',
+                HiddenType::class,
                 array(
                     'label' => '',
                     'required' => false,
@@ -41,7 +42,7 @@ class RoleMenuType extends AbstractType
             )
             ->add(
                 'level',
-                'hidden',
+                HiddenType::class,
                 array(
                     'label' => '',
                     'required' => false,

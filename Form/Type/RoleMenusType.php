@@ -16,7 +16,7 @@ class RoleMenusType extends AbstractType
                 'roleMenus',
                 CollectionType::class,
                 array(
-                    'type' => new RoleMenuType()
+                    'entry_type' => RoleMenuType::class
                 )
             );
     }
