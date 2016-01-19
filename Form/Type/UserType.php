@@ -8,6 +8,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
@@ -78,7 +79,7 @@ class UserType extends AbstractType
             ->add('fullName')
             ->add(
                 'locale',
-                'choice',
+                ChoiceType::class,
                 array(
                     'choices' => $langChoices
                 )
@@ -117,7 +118,7 @@ class UserType extends AbstractType
     }
 
     /**
-     * SetDefaultOptions
+     * configureOptions
      *
      * @param OptionsResolver $resolver
      */
