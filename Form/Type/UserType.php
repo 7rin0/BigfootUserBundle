@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
 use Bigfoot\Bundle\ContextBundle\Service\ContextService;
 use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\AbstractType;
@@ -69,7 +70,7 @@ class UserType extends AbstractType
             ->add('username')
             ->add(
                 'email',
-                'text',
+                TextType::class,
                 array(
                     'attr' => array(
                         'class' => 'width-100'

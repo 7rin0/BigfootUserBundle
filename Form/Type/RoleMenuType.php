@@ -2,6 +2,7 @@
 
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +23,7 @@ class RoleMenuType extends AbstractType
             )
             ->add(
                 'label',
-                'text',
+                TextType::class,
                 array(
                     'disabled' => true,
                     'label' => '',
