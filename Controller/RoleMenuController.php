@@ -30,11 +30,11 @@ class RoleMenuController extends BaseController
      * @Route("/", name="admin_role_menu")
      * @Method({"GET", "POST"})
      */
-    public function indexAction(RequestStack $requestStack)
+    public function indexAction()
     {
         $items = $this->getMenuRoleManager()->getItems();
-        $requestStack = $requestStack->getCurrentRequest();
-        $form  = $this->createForm(new RoleMenusType(), array('roleMenus' => new ArrayCollection($items)));
+        $requestStack = $this->get('request_stack')->getCurrentRequest();
+        $form  = $this->createForm(get_class(new RoleMenusType()), array('roleMenus' => new ArrayCollection($items)));
 
         if ($requestStack->isMethod('POST')) {
             $form->handleRequest($requestStack);
