@@ -3,7 +3,6 @@
 namespace Bigfoot\Bundle\UserBundle\Listener;
 
 use Bigfoot\Bundle\UserBundle\Model\User;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
