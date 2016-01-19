@@ -7,6 +7,7 @@ use Bigfoot\Bundle\UserBundle\Event\UserEvent;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Security\Core\Authorization\AuthorizationChecker;
@@ -87,7 +88,7 @@ class UserType extends AbstractType
             $builder
                 ->add(
                     'enabled',
-                    'checkbox',
+                    CheckboxType::class,
                     array(
                         'required' => false
                     )
