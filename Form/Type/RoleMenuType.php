@@ -36,7 +36,7 @@ class RoleMenuType extends AbstractType
                 EntityType::class,
                 array(
                     'class'    => 'BigfootUserBundle:Role',
-                    'property' => 'label',
+                    'choice_label' => 'label',
                     'multiple' => true,
                     'label' => '',
                     'required' => false,

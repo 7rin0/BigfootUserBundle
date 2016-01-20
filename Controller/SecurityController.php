@@ -6,6 +6,8 @@ use Bigfoot\Bundle\CoreBundle\Controller\BaseController;
 use Bigfoot\Bundle\UserBundle\Event\UserEvent;
 use Bigfoot\Bundle\UserBundle\Form\Model\ForgotPasswordModel;
 use Bigfoot\Bundle\UserBundle\Form\Model\ResetPasswordModel;
+use Bigfoot\Bundle\UserBundle\Form\Type\ForgotPasswordType;
+use Bigfoot\Bundle\UserBundle\Form\Type\ResetPasswordType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -60,7 +62,7 @@ class SecurityController extends BaseController
     {
         // Create Form
         $form         = $this->createForm(
-            get_class($this->get('bigfoot_user.form.type.forgot_password')),
+            ForgotPasswordType::class,
             new ForgotPasswordModel()
         );
 
@@ -117,7 +119,7 @@ class SecurityController extends BaseController
         }
 
         $form = $this->createForm(
-            $this->get('bigfoot_user.form.type.reset_password'),
+            ResetPasswordType::class,
             new ResetPasswordModel()
         );
 
