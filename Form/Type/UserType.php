@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
 use Bigfoot\Bundle\ContextBundle\Service\ContextService;
 use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -97,7 +98,7 @@ class UserType extends AbstractType
                 )
                 ->add(
                     'formRoles',
-                    'entity',
+                    EntityType::class,
                     array(
                         'class'    => 'BigfootUserBundle:Role',
                         'multiple' => true,
