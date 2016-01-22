@@ -98,7 +98,7 @@ class UserType extends AbstractType
                 )
                 ->add(
                     'formRoles',
-                    EntityType::class,
+                    'entity',
                     array(
                         'class'    => 'BigfootUserBundle:Role',
                         'multiple' => true,
