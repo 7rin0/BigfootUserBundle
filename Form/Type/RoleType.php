@@ -2,6 +2,7 @@
 
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
+use Bigfoot\Bundle\CoreBundle\Form\Type\TranslatedEntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +14,7 @@ class RoleType extends AbstractType
         $builder
             ->add('name')
             ->add('label')
-            ->add('translation', 'translatable_entity')
+            ->add('translation', TranslatedEntityType::class)
         ;
     }
 
