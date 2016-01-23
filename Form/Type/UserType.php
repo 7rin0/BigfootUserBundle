@@ -131,14 +131,4 @@ class UserType extends AbstractType
             )
         );
     }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return 'admin_user';
-    }
 }

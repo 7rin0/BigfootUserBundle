@@ -4,6 +4,7 @@ namespace Bigfoot\Bundle\UserBundle\Controller;
 
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
 use Bigfoot\Bundle\UserBundle\Event\UserEvent;
+use Bigfoot\Bundle\UserBundle\Form\Type\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\EventDispatcher\GenericEvent;
@@ -61,7 +62,7 @@ class UserController extends CrudController
 
     protected function getFormType()
     {
-        return 'admin_user';
+        return UserType::class;
     }
 
     public function getEntityLabel()
