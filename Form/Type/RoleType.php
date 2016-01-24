@@ -26,9 +26,4 @@ class RoleType extends AbstractType
             )
         );
     }
-
-    public function getName()
-    {
-        return 'admin_role';
-    }
 }

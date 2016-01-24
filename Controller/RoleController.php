@@ -3,6 +3,7 @@
 namespace Bigfoot\Bundle\UserBundle\Controller;
 
 use Bigfoot\Bundle\CoreBundle\Controller\CrudController;
+use Bigfoot\Bundle\UserBundle\Form\Type\RoleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -64,7 +65,7 @@ class RoleController extends CrudController
 
     protected function getFormType()
     {
-        return 'admin_role';
+        return RoleType::class;
     }
 
     /**
