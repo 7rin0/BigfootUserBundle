@@ -3,6 +3,8 @@
 namespace Bigfoot\Bundle\UserBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,9 +15,9 @@ class ResetPasswordType extends AbstractType
         $builder
             ->add(
                 'plainPassword',
-                'repeated',
+                RepeatedType::class,
                 array(
-                    'type'            => 'password',
+                    'type'            => PasswordType::class,
                     'invalid_message' => 'Passwords are not identical.',
                     'required'        => true,
                 )
