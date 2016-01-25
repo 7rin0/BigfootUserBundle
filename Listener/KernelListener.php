@@ -37,6 +37,7 @@ class KernelListener
     public function onKernelRequest(GetResponseEvent $event, RequestStack $requestStack)
     {
         if (HttpKernelInterface::MASTER_REQUEST !== $event->getRequestType() or !in_array($this->kernel->getEnvironment(), array('admin', 'admin_dev'))) {
+            dump($this); die();
             return;
         }
 
