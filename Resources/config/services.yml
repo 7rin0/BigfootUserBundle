@@ -1,13 +1,13 @@
 services:
     form.type.role_menu:
-        class: Bigfoot\Bundle\UserBundle\Form\BigfootRoleMenuType
+        class: 'Bigfoot\Bundle\UserBundle\Form\BigfootRoleMenuType'
         arguments: [ '@service_container' ]
         tags:
             - { name: form.type }
 
     # Kernel Listener
     bigfoot_user.listener.kernel:
-        class: Bigfoot\Bundle\UserBundle\Listener\KernelListener
+        class: 'Bigfoot\Bundle\UserBundle\Listener\KernelListener'
         arguments:
             - '@security.token_storage'
             - '@kernel'
@@ -16,7 +16,7 @@ services:
 
     # Menu Subscriber
     bigfoot_user.subscriber.menu:
-        class: Bigfoot\Bundle\UserBundle\Subscriber\MenuSubscriber
+        class: 'Bigfoot\Bundle\UserBundle\Subscriber\MenuSubscriber'
         arguments:
             - '@security.token_storage'
         tags:
@@ -24,15 +24,15 @@ services:
 
     # Settings Subscriber
     bigfoot_user.subscriber.settings:
-        class: Bigfoot\Bundle\UserBundle\Subscriber\SettingsSubscriber
+        class: 'Bigfoot\Bundle\UserBundle\Subscriber\SettingsSubscriber'
         tags:
             - { name: kernel.event_subscriber }
 
     # User Manager
     bigfoot_user.manager.user:
-        class: Bigfoot\Bundle\UserBundle\Manager\UserManager
+        class: 'Bigfoot\Bundle\UserBundle\Manager\UserManager'
         arguments:
-            - '@doctrine.orm.entity_manager'
+            - '@doctrine.orm.default_entity_manager'
             - '@security.encoder_factory'
             - '@security.user_checker'
             - '@security.token_storage'
@@ -45,14 +45,14 @@ services:
 
     # User Mailer
     bigfoot_user.mailer.user:
-        class: Bigfoot\Bundle\UserBundle\Mailer\UserMailer
+        class: 'Bigfoot\Bundle\UserBundle\Mailer\UserMailer'
         arguments:
             - '@event_dispatcher'
         parent: bigfoot_core.mailer.abstract
 
     # User Subscriber
     bigfoot_user.subscriber.user:
-        class: Bigfoot\Bundle\UserBundle\Subscriber\UserSubscriber
+        class: 'Bigfoot\Bundle\UserBundle\Subscriber\UserSubscriber'
         arguments:
             - '@bigfoot_user.manager.user'
         tags:
@@ -60,7 +60,7 @@ services:
 
     # User Type
     bigfoot_user.form.type.user:
-        class: Bigfoot\Bundle\UserBundle\Form\Type\UserType
+        class: 'Bigfoot\Bundle\UserBundle\Form\Type\UserType'
         arguments:
             - '@security.authorization_checker'
             - '@bigfoot_context'
@@ -70,28 +70,28 @@ services:
 
     # ForgotPassword Type
     bigfoot_user.form.type.forgot_password:
-        class: Bigfoot\Bundle\UserBundle\Form\Type\ForgotPasswordType
+        class: 'Bigfoot\Bundle\UserBundle\Form\Type\ForgotPasswordType'
         arguments:
-            - '@doctrine.orm.entity_manager'
+            - '@doctrine.orm.default_entity_manager'
         tags:
             - { name: form.type }
 
     # ResetPassword Type
     bigfoot_user.form.type.reset_password:
-        class: Bigfoot\Bundle\UserBundle\Form\Type\ResetPasswordType
+        class: 'Bigfoot\Bundle\UserBundle\Form\Type\ResetPasswordType'
         tags:
             - { name: form.type }
 
     # Role Type
     bigfoot_user.form.type.role:
-        class: Bigfoot\Bundle\UserBundle\Form\Type\RoleType
+        class: 'Bigfoot\Bundle\UserBundle\Form\Type\RoleType'
         tags:
             - { name: form.type }
 
     #MenuRole
     bigfoot_user.manager.role_menu:
-        class: Bigfoot\Bundle\UserBundle\Manager\RoleMenuManager
+        class: 'Bigfoot\Bundle\UserBundle\Manager\RoleMenuManager'
         arguments:
             - '@request_stack'
             - '@bigfoot_core.menu_builder'
-            - '@doctrine.orm.entity_manager'
+            - '@doctrine.orm.default_entity_manager'
