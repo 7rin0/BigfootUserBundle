@@ -1,29 +1,29 @@
-Users: "Liste des utilisateurs"
-Add a user: "Ajouter un utilisateur"
-User edit: "Modification d'un utilisateur"
-User creation: "Création d'un utilisateur"
-Username: "Nom d'utilisateur"
-Email: "Adresse email"
-Full name: "Nom complet"
-Locale: "Langue"
-Password: "Mot de passe"
-User roles: "Groupes utilisateur"
-User management: "Gestion des utilisateurs"
-Role management: "Gestion des groupes"
-Roles: "Liste des groupes d'utilisateurs"
-Add a role: "Ajouter un groupe"
-User role creation: "Création d'un groupe d'utilisateurs"
-User role edit: "Modification d'un groupe d'utilisateurs"
-My account: "Mon compte"
-Users admin: "Administration des utilisateurs"
-User roles admin: "Administration des groupes d'utilisateurs"
+Users: 'Liste des utilisateurs'
+Add a user: 'Ajouter un utilisateur'
+User edit: 'Modification d'un utilisateur'
+User creation: 'Création d'un utilisateur'
+Username: 'Nom d'utilisateur'
+Email: 'Adresse email'
+Full name: 'Nom complet'
+Locale: 'Langue'
+Password: 'Mot de passe'
+User roles: 'Groupes utilisateur'
+User management: 'Gestion des utilisateurs'
+Role management: 'Gestion des groupes'
+Roles: 'Liste des groupes d'utilisateurs'
+Add a role: 'Ajouter un groupe'
+User role creation: 'Création d'un groupe d'utilisateurs'
+User role edit: 'Modification d'un groupe d'utilisateurs'
+My account: 'Mon compte'
+Users admin: 'Administration des utilisateurs'
+User roles admin: 'Administration des groupes d'utilisateurs'
 
 bigfoot_user:
     settings:
         label:
-            send_email: "Envoyer un email a l'inscription"
+            send_email: 'Envoyer un email a l'inscription'
 
     role_menu:
         global:
-            save: "Sauvegarder"
+            save: 'Sauvegarder'
 
