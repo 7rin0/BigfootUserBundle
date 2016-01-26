@@ -37,7 +37,7 @@ services:
             - '@security.user_checker'
             - '@security.token_storage'
             - '@session'
-            - '@bigfoot_context'
+            - '@bigfoot_context.service.context'
             - '@bigfoot_user.mailer.user'
             - '@bigfoot_core.generator.token'
         calls:
@@ -63,7 +63,7 @@ services:
         class: 'Bigfoot\Bundle\UserBundle\Form\Type\UserType'
         arguments:
             - '@security.authorization_checker'
-            - '@bigfoot_context'
+            - '@bigfoot_context.service.context'
             - '@event_dispatcher'
         tags:
             - { name: form.type }
